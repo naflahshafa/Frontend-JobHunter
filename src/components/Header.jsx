@@ -26,8 +26,8 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
             <header className="text-blue-700 p-4 fixed top-0 z-10 bg-white w-full border-b-2">
                 <div className="container mx-auto flex justify-between items-center">
                     <a href="/" className="flex gap-2">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className=""
-                             alt="FlowBite Logo"/>
+                        {/* <img src="https://flowbite.com/docs/images/logo.svg" className=""
+                             alt="FlowBite Logo"/> */}
                         <span
                             className="self-center text-xl font-semibold font-noto sm:text-2xl whitespace-nowrap dark:text-white">JobHunter</span>
                     </a>
@@ -38,7 +38,7 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                         <svg
                             className="h-6 w-6"
                             fill="none"
-                            stroke="currentColor"
+                            stroke="blue"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                         >
@@ -66,29 +66,29 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                                 />
                                 <button
                                     onClick={onSearch}
-                                    className="bg-white text-blue-700 px-2 py-1 rounded-md ml-2"
+                                    className="bg-white text-blue-700 px-2 py-1 my-1 rounded-md ml-2"
                                 >
                                     <Search size={18}/>
                                 </button>
-                                <div className="px-4 py-3" role="none">
+                                {/* <div className="px-4 py-3" role="none">
                                     <p className="text-sm text-gray-900 dark:text-white" role="none">
 
                                     </p>
-                                </div>
+                                </div> */}
                                 <ul className="py-1" role="none">
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                           className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                            role="menuitem">Profile</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                           className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                            role="menuitem">History</a>
                                     </li>
                                     <li onClick={handleLogout}>
                                         <span href="#"
-                                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                              className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                               role="menuitem">Log out</span>
                                     </li>
                                 </ul>
@@ -109,7 +109,7 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                         {isLoggedIn ? (
                             <>
                                 <button type="button"
-                                        className="hidden sm:block flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                        className="sm:block flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                                         aria-expanded="false" data-dropdown-toggle="dropdown-user">
                                     <span className="sr-only">Open user menu</span>
                                     <img className="w-8 h-8 rounded-full"
@@ -135,9 +135,9 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                             </>
                         ) : (
                             <Link to="/login"
-                                  className="hidden md:flex items-center px-4 py-1 bg-blue-500 text-white rounded-md flex items-center">
+                                  className="md:flex items-center px-4 py-1 bg-blue-700 text-white hover:bg-blue-600 rounded-md absolute right-12 top-4">
                                 Login
-                                <LogIn size={18} className="ml-2"/>
+                                {/* <LogIn size={12} className="ml-3"/> */}
                             </Link>
                         )}
                     </div>

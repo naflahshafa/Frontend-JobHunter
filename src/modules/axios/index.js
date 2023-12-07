@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set up Axios instance
 // develop
-const baseURL = "http://localhost:3000/api/v1";
+const baseURL = "https://backend-jobhunter.up.railway.app/";
 
 // production
 // const baseURL = "https://caring-climbing-shad.ngrok-free.app/api/v1";

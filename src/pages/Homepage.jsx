@@ -1,16 +1,11 @@
 // Homepage.jsx
 import React, {useEffect, useState, useRef} from 'react';
-import axios from 'axios';
 import Header from '../components/Header';
 import Slogan from '../components/Slogan';
 import JobCard from '../components/JobCard.jsx';
 import JobDetails from '../components/JobDetails';
 import JobFilter from '../components/JobFilter';
 import Footer from "../components/Footer.jsx";
-
-const instance = axios.create({
-    baseURL: 'http://localhost:3000/api/v1',
-});
 
 const Homepage = () => {
     const [jobs, setJobs] = useState([]);

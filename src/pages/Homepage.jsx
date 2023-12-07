@@ -8,7 +8,7 @@ import JobDetails from '../components/JobDetails';
 import JobFilter from '../components/JobFilter';
 import Footer from "../components/Footer.jsx";
 
-const instance = axios.create({ 'https://backend-jobhunter.up.railway.app/api/v1',
+const instance = axios.create({ baseURL: 'https://backend-jobhunter.up.railway.app/api/v1',
 });
 
 const Homepage = () => {

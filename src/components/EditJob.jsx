@@ -51,25 +51,25 @@ const EditJob = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchUpdateJob = async () => {
-            try {
-            const response = await getJobById(id)
-            const jobData = response.data;
-            setFormData({
-                job_name: jobData.job_name,
-                type: jobData.type,
-                category: jobData.category,
-                requirement: jobData.requirement,
-                description: jobData.description,
-                required_skill: jobData.required_skill,
-                salary: jobData.salary,
-            });
-            } catch (error) {
-            console.error("Error fetching job data:", error.message);
-            }
-        };
+    const fetchUpdateJob = async () => {
+        try {
+        const response = await getJobById(id)
+        const jobData = response.data;
+        setFormData({
+            job_name: jobData.job_name,
+            type: jobData.type,
+            category: jobData.category,
+            requirement: jobData.requirement,
+            description: jobData.description,
+            required_skill: jobData.required_skill,
+            salary: jobData.salary,
+        });
+        } catch (error) {
+        console.error("Error fetching job data:", error.message);
+        }
+    };
     
+    useEffect(() => {
         fetchUpdateJob();
     }, []);
             

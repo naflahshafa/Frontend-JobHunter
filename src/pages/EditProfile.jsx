@@ -184,7 +184,7 @@ const EditProfile = () => {
                 <div className="text-center text-2xl font-bold text-blue-700 mb-4 mt-4">
                     Edit Profil
                 </div>
-                <div className="mb-6 flex justify-center">
+                {/* <div className="mb-6 flex justify-center">
                     <label htmlFor="profil" className="cursor-pointer">
                         <input
                             type="file"
@@ -197,7 +197,7 @@ const EditProfile = () => {
                         <img
                             className="h-40 w-40 rounded-full object-cover mx-auto cursor-pointer"
                             src={
-                                formData.profil
+                                formData.profil && formData.profil instanceof Blob
                                     ? URL.createObjectURL(formData.profil)
                                     : "https://sassyboss.co/wp-content/uploads/2019/07/grava.gif"
                             }
@@ -213,7 +213,7 @@ const EditProfile = () => {
                             </button>
                         </div>
                     </label>
-                </div>
+                </div> */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {/* Form Field: Name */}
                     <div>

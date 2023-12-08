@@ -1,15 +1,12 @@
 // Homepage.jsx
 import React, {useEffect, useState, useRef} from 'react';
-import axios from 'axios';
 import Header from '../components/Header';
 import Slogan from '../components/Slogan';
 import JobCard from '../components/JobCard.jsx';
 import JobDetails from '../components/JobDetails';
 import JobFilter from '../components/JobFilter';
 import Footer from "../components/Footer.jsx";
-
-const instance = axios.create({ baseURL: 'https://backend-jobhunter.up.railway.app/api/v1',
-});
+import { getAllJobs } from '../modules/fetch/job/index.js';
 
 const Homepage = () => {
     const [jobs, setJobs] = useState([]);
@@ -24,18 +21,18 @@ const Homepage = () => {
     const viewMoreRef = useRef(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Ganti dengan status login yang sesuai
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await instance.get('/jobs');
-                setJobs(response.data.data);
-            } catch (error) {
-                setError(error.message || 'Something went wrong');
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchData = async () => {
+        try {
+            const response = await getAllJobs();
+            setJobs(response.data);
+        } catch (error) {
+            setError(error.message || 'Something went wrong');
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchData();
     }, []);
 

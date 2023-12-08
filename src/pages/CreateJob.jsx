@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar.jsx';
@@ -13,6 +14,7 @@ const JobType = {
 };
 
 const CreateJob = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
       job_name: '',
       type: JobType.FULL_TIME,
@@ -55,6 +57,9 @@ const CreateJob = () => {
                 autoClose: 3000
             });
 
+            setTimeout(() => {
+              navigate("/joblist");
+          }, 2000);
         } catch (error) {
             console.error('Error creating job:', error.message);
             toast.error('Error creating job', {
@@ -193,11 +198,17 @@ const CreateJob = () => {
             
             </div>
     
-            <div className="flex justify-end">
-              <button type="submit" className="bg-blue-500 font-poppins text-white p-2 rounded-md">
-                Create Job
-              </button>
-            </div>
+            <div class="flex flex-row-reverse space-x-3 space-x-reverse">
+              <button 
+                  type="submit" 
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  >Create Job</button>
+              <button 
+                  type="button" 
+                  onClick={() => navigate("/joblist")}
+                  class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  >Cancel</button>
+          </div>
           </form>
           <ToastContainer />
         </div>

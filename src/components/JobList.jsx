@@ -1,46 +1,99 @@
 import {useEffect, useState} from "react";
 import {getJobsByUserId, deleteJob} from "../modules/fetch/job";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const JobList = () => {
-    // const { id } = useParams();
     const navigate = useNavigate();
-    const [jobs, setJobs] = useState([])
-    useEffect(() => {
+    const [jobs, setJobs] = useState([]);
+
+    const fetchJobs = async () => {
         try {
-            const fetchJobs = async () => {
-                const response = await getJobsByUserId();
-                // const response1 = await getAllJobs()
-                const jobsData = response;
-                // setJobs(jobsData)
+            const response = await getJobsByUserId();
+            const jobsData = response;
+            if (Array.isArray(jobsData)) {
+                const formattedJobs = jobsData.map((job) => ({
+                    ...job,
+                    updatedAt: formatUpdatedAt(job.updatedAt),
+                }));
+    
+                setJobs(formattedJobs);
+            } else {
+                console.error("Response is not an array:", jobsData);
+            } 
+        } catch (error) {
+            console.log("Error fetching jobs", error)
+        }  
+    };
 
-                if (Array.isArray(jobsData)) {
-                    const formattedJobs = jobsData.map((job) => ({
-                        ...job,
-                        updatedAt: formatUpdatedAt(job.updatedAt),
-                    }));
-
-                    setJobs(formattedJobs);
-                } else {
-                    console.error("Response is not an array:", jobsData);
-                }
-            }
-            fetchJobs()
-        } catch (e) {
-            console.log("Error fetching jobs", e)
-        }
+    useEffect(() => {
+        fetchJobs()
     }, [])
 
     const handleDeleteJob = async (id) => {
         try {
-            await deleteJob(id);
-            
-            setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
-            
+          // Menampilkan notifikasi konfirmasi sebelum menghapus job
+          toast.info(
+            <>
+              Are you sure you want to delete this job?
+              <div className="flex justify-end mt-2">
+                <button
+                  className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
+                  onClick={() => deleteJobHandler(id)}
+                >
+                  Yes
+                </button>
+                <button
+                  className="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2"
+                  onClick={() => toast.dismiss()}
+                >
+                  No
+                </button>
+              </div>
+            </>,
+            {
+              position: toast.POSITION.TOP_CENTER,
+              hideProgressBar: true,
+              closeButton: false,
+              closeOnClick: true,
+              autoClose: false,
+              onOpen: () => {},
+            }
+          );
         } catch (error) {
-            console.error("Error deleting job", error.message);
+          console.error("Error deleting job", error.message);
+          toast.error("Error deleting job", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000,
+          });
         }
-    };
+      };
+    
+      const deleteJobHandler = async (id) => {
+        try {
+          await deleteJob(id);
+    
+          setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+    
+          // Menampilkan notifikasi setelah job dihapus
+          toast.success("Job deleted successfully", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 3000,
+          });
+        } catch (error) {
+          console.error("Error deleting job", error.message);
+    
+          // Menampilkan notifikasi jika terjadi error saat menghapus job
+          toast.error("Error deleting job", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000,
+          });
+        }
+      };
 
     const formatUpdatedAt = (updatedAt) => {
         const date = new Date(updatedAt);
@@ -51,13 +104,7 @@ const JobList = () => {
         return formattedDate;
     };
 
-
-    
-
-
-
     return (
-
         <div>
             <div className="bg-blue-100 py-4 mt-10">
                 <h1 className="text-2xl text-center font-bold">Job List</h1>
@@ -159,6 +206,7 @@ const JobList = () => {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer />
         </div>
 
     )

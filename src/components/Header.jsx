@@ -29,7 +29,7 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                         {/* <img src="https://flowbite.com/docs/images/logo.svg" className=""
                              alt="FlowBite Logo"/> */}
                         <span
-                            className="self-center text-xl font-semibold font-noto sm:text-2xl whitespace-nowrap dark:text-white">JobHunter</span>
+                            className="self-center text-xl font-bold font-noto sm:text-2xl whitespace-nowrap dark:text-white">JobHunter</span>
                     </a>
                     <button
                         onClick={handleMobileMenuToggle}
@@ -53,11 +53,11 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
 
                     {/* Mobile Menu */}
                     {isMobileMenuOpen && (
-                        <div className="md:hidden absolute top-16 right-4 bg-blue-700 p-4 rounded-md">
+                        <div className="md:hidden absolute top-16 right-4 bg-white p-4 rounded-md border border-gray-300">
                             {/* Search Input in Mobile Menu */}
                             <div
                                 className="mb-2 flex flex-col items-center space-x-2"> {/* Tambahkan class space-x-2 di sini juga */}
-                                <input
+                                {/* <input
                                     type="text"
                                     placeholder="Search jobs..."
                                     value={searchTerm}
@@ -69,7 +69,7 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                                     className="bg-white text-blue-700 px-2 py-1 my-1 rounded-md ml-2"
                                 >
                                     <Search size={18}/>
-                                </button>
+                                </button> */}
                                 {/* <div className="px-4 py-3" role="none">
                                     <p className="text-sm text-gray-900 dark:text-white" role="none">
 
@@ -78,17 +78,17 @@ const Header = ({onSearch, searchTerm, setSearchTerm, toggleLoginStatus}) => {
                                 <ul className="py-1" role="none">
                                     <li>
                                         <a href="/edituser"
-                                           className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                           className="block px-4 py-2 text-center text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                            role="menuitem">Profile</a>
                                     </li>
                                     <li>
                                         <a href="/edituser"
-                                           className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                           className="block px-4 py-2 text-center text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                            role="menuitem">History</a>
                                     </li>
                                     <li onClick={handleLogout}>
                                         <span href="#"
-                                              className="block px-4 py-2 text-center text-sm text-white hover:bg-blue-500 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                              className="block px-4 py-2 text-center text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                               role="menuitem">Log out</span>
                                     </li>
                                 </ul>

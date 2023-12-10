@@ -278,7 +278,7 @@ const EditProfile = () => {
                     {/* Form Field: Role */}
                     <div>
                         <label htmlFor="role" className="block text-sm font-medium text-gray-700">
-                            Roll
+                            Role
                         </label>
                         <select
                             id="role"

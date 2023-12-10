@@ -97,7 +97,7 @@ const Homepage = () => {
                     <div className="flex justify-center mt-4">
                         <button
                             onClick={handleViewMore}
-                            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline my-3"
                         >
                             View More
                         </button>

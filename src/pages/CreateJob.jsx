@@ -79,7 +79,7 @@ const CreateJob = () => {
         <div class="bg-blue-100 py-4 mt-10">
             <h1 class="text-2xl text-center font-bold">Create a Job</h1>
         </div>
-          <form onSubmit={handleFormSubmit} className='border border-gray-300 px-4 py-8 rounded mx-auto max-w-6xl w-full my-5 inputs space-y-6' >
+          <form onSubmit={handleFormSubmit} className='border bg-gray-100 border-gray-300 px-4 py-8 rounded mx-auto max-w-6xl w-full my-5 inputs space-y-6' >
             <div className="grid grid-flow-row-dense sm:grid-cols-1 md:grid-cols-2 gap-y-0 gap-x-8">
             <div className="col-span-2 mb-4">
               <label htmlFor="job_name" className="block text-sm font-semibold font-poppins">

@@ -26,7 +26,7 @@ const Navbar = () => {
                                 {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3"
                                      alt="FlowBite Logo"/> */}
                                 <span
-                                    className="self-center text-xl font-semibold font-noto sm:text-2xl whitespace-nowrap text-blue-700">JobHunter</span>
+                                    className="self-center text-xl font-bold font-noto sm:text-2xl whitespace-nowrap text-blue-700">JobHunter</span>
                             </Link>
                         </div>
                         <div className="flex items-center">
@@ -42,6 +42,26 @@ const Navbar = () => {
                                     </button>
                                 </div>
                                 <div
+                                    className="z-50 hidden text-start my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600 border border-gray-300"
+                                    id="dropdown-user">
+                                    <ul className="py-1 px-3 text-start" role="none">
+                                        <li>
+                                            <Link to="/dashboard"
+                                               className="block px-4 py-2 text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                               role="menuitem">Dashboard</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/joblist"
+                                               className="block px-4 py-2 text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                               role="menuitem">Joblist</Link>
+                                        </li>
+                                        <li className="block px-4 py-2 text-sm text-blue-700 hover:bg-blue-200 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                            role="menuitem">
+                                            <Logout/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {/* <div
                                     className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                                     id="dropdown-user">
                                     <ul className="py-1" role="none">
@@ -62,62 +82,10 @@ const Navbar = () => {
                                             <Logout/>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div
-                    className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="dropdown-user"
-                >
-                    <ul className="py-1" role="none">
-                        <li>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem"
-                            >
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem"
-                            >
-                                Kanban
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem"
-                            >
-                                Job List
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem"
-                            >
-                                Edit Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem"
-                            >
-                                Sign out
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </nav>
         </>

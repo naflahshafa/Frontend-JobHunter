@@ -206,6 +206,18 @@ const JobList = () => {
                     </tbody>
                 </table>
             </div>
+            <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 20" fill="none">
+                    <path d="M15.0001 6.65356L9.30005 11.7011C9.20588 11.7818 9.13062 11.8804 9.0791 11.9904C9.02759 12.1004 9.00098 12.2195 9.00098 12.3398C9.00098 12.4602 9.02759 12.5792 9.0791 12.6892C9.13062 12.7993 9.20588 12.8978 9.30005 12.9786L15.0001 18.0261" stroke="blue" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <Link
+                    to="/dashboard"
+                    className="block py-1 text-sm text-blue-700 hover:text-blue-400 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem"
+                >
+                    Back to Dashboard
+                </Link>
+            </div>
             <ToastContainer />
         </div>
 

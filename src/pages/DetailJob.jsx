@@ -99,8 +99,10 @@ const DetailJob = () => {
                     <h2 className="font-bold text-2xl mb-5">Company Info</h2>
                     <div className="mt-4 flex items-center">
                         <img
-                            src="https://via.placeholder.com/150"
-                            alt="Job Image"
+                            src={user.profil 
+                                ? `${user.profil}?tr=w-150,h-150`
+                                : "https://via.placeholder.com/150"
+                              }
                             className="mr-6 rounded-md shadow-md"
                         />
                         <div>
